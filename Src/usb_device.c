@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : stm32f4xx_hal_msp.c
-  * Description        : This file provides code for the MSP Initialization 
-  *                      and de-Initialization codes.
+  * @file           : USB_DEVICE  
+  * @version        : v1.0_Cube
+  * @brief          : This file implements the USB Device 
   ******************************************************************************
   *
   * Copyright (c) 2017 STMicroelectronics International N.V. 
@@ -40,50 +40,32 @@
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
+*/
+
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
 
-extern void Error_Handler(void);
-/* USER CODE BEGIN 0 */
+#include "usb_device.h"
+#include "usbd_core.h"
+#include "usbd_desc.h"
+#include "usbd_cdc.h"
+#include "usbd_cdc_if.h"
 
-/* USER CODE END 0 */
-/**
-  * Initializes the Global MSP.
-  */
-void HAL_MspInit(void)
+/* USB Device Core handle declaration */
+USBD_HandleTypeDef hUsbDeviceFS;
+
+/* init function */				        
+void MX_USB_DEVICE_Init(void)
 {
-  /* USER CODE BEGIN MspInit 0 */
+  /* Init Device Library,Add Supported Class and Start the library*/
+  USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
 
-  /* USER CODE END MspInit 0 */
+  USBD_RegisterClass(&hUsbDeviceFS, &USBD_CDC);
 
-  HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+  USBD_CDC_RegisterInterface(&hUsbDeviceFS, &USBD_Interface_fops_FS);
 
-  /* System interrupt init*/
-  /* MemoryManagement_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(MemoryManagement_IRQn, 0, 0);
-  /* BusFault_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(BusFault_IRQn, 0, 0);
-  /* UsageFault_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
-  /* SVCall_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(SVCall_IRQn, 0, 0);
-  /* DebugMonitor_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DebugMonitor_IRQn, 0, 0);
-  /* PendSV_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
-  /* SysTick_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(SysTick_IRQn, 15, 0);
+  USBD_Start(&hUsbDeviceFS);
 
-  /* USER CODE BEGIN MspInit 1 */
-
-  /* USER CODE END MspInit 1 */
 }
-
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
-
 /**
   * @}
   */

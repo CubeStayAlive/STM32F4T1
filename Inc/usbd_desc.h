@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : stm32f4xx_hal_msp.c
-  * Description        : This file provides code for the MSP Initialization 
-  *                      and de-Initialization codes.
+  * @file           : usbd_desc.h
+  * @version        : v1.0_Cube
+  * @brief          : Header for usbd_desc file.
   ******************************************************************************
   *
   * Copyright (c) 2017 STMicroelectronics International N.V. 
@@ -40,56 +40,75 @@
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
+*/
+
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __USBD_DESC__H__
+#define __USBD_DESC__H__
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
+#include "usbd_def.h"
 
-extern void Error_Handler(void);
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-/**
-  * Initializes the Global MSP.
+/** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  * @{
   */
-void HAL_MspInit(void)
-{
-  /* USER CODE BEGIN MspInit 0 */
+  
+/** @defgroup USB_DESC
+  * @brief general defines for the usb device library file
+  * @{
+  */ 
 
-  /* USER CODE END MspInit 0 */
+/** @defgroup USB_DESC_Exported_Defines
+  * @{
+  */
 
-  HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+/**
+  * @}
+  */ 
 
-  /* System interrupt init*/
-  /* MemoryManagement_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(MemoryManagement_IRQn, 0, 0);
-  /* BusFault_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(BusFault_IRQn, 0, 0);
-  /* UsageFault_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
-  /* SVCall_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(SVCall_IRQn, 0, 0);
-  /* DebugMonitor_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DebugMonitor_IRQn, 0, 0);
-  /* PendSV_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
-  /* SysTick_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(SysTick_IRQn, 15, 0);
+/** @defgroup USBD_DESC_Exported_TypesDefinitions
+  * @{
+  */
+/**
+  * @}
+  */ 
 
-  /* USER CODE BEGIN MspInit 1 */
+/** @defgroup USBD_DESC_Exported_Macros
+  * @{
+  */ 
+/**
+  * @}
+  */ 
 
-  /* USER CODE END MspInit 1 */
+/** @defgroup USBD_DESC_Exported_Variables
+  * @{
+  */ 
+extern USBD_DescriptorsTypeDef FS_Desc;
+/**
+  * @}
+  */ 
+
+/** @defgroup USBD_DESC_Exported_FunctionsPrototype
+  * @{
+  */ 
+  
+/**
+  * @}
+  */ 
+#ifdef __cplusplus
 }
+#endif
 
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
-
-/**
-  * @}
-  */
+#endif /* __USBD_DESC_H */
 
 /**
   * @}
-  */
+  */ 
 
+/**
+* @}
+*/ 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
