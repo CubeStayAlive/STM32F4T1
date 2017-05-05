@@ -1,6 +1,6 @@
 Configuration	STM32F4T1
 STM32CubeMX 	4.20.1
-Date	04/25/2017
+Date	05/05/2017
 MCU	STM32F407VGTx
 
 
@@ -57,7 +57,7 @@ SOFTWARE PROJECT
 
 Project Settings : 
 Project Name : STM32F4T1
-Project Folder : F:\STM32\workspace_f4\STM32F4T1
+Project Folder : F:\STM32\workspace3\STM32F4T1
 Toolchain / IDE : SW4STM32
 Firmware Package Name and Version : STM32Cube FW_F4 V1.16.0
 
