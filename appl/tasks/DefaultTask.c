@@ -13,31 +13,11 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-static void run_it1(void )
+void DefaultTaskEntry(void)
 {
 	while(1)
 	{
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_SET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
-		vTaskDelay(200);
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
-		vTaskDelay(200);
+		vTaskDelay(1000);
 	}
-
-}
-void DefaultTaskEntry(void)
-{
-	run_it1();
 }
 

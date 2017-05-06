@@ -9,5 +9,6 @@
 #define INTERSECT_DEFAULTTASK_H_
 
 extern void DefaultTaskEntry(void);
+extern void ThreadBlinky(void const * argument);
 
 #endif /* INTERSECT_DEFAULTTASK_H_ */
