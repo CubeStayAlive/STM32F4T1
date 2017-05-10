@@ -8,12 +8,12 @@
 #include "intersect/IntersectCDC.h"
 #include "usbd_cdc_if.h"
 
-static uint8_t answ[] = "Hello!\n";
+static uint8_t answ[] = "Hello!\015\012";
 
 static uint8_t lcb[22];
 static uint16_t lcblen=0;
 
-void CDCGet(uint8_t* Buf, uint32_t *Len)
+void CDCIFGet(uint8_t* Buf, uint32_t *Len)
 {
 	CDC_Transmit_FS(answ, (uint32_t)strlen((char*)answ));
 }

@@ -12,7 +12,7 @@
 
 #define CDC_BUFFER_SIZE 64
 
-void CDCGet(uint8_t* Buf, uint32_t *Len);
+void CDCIFGet(uint8_t* Buf, uint32_t *Len);
 void CDCIF_SetLineCoding(uint8_t* pbuf, uint16_t length);
 void CDCIF_GetLineCoding(uint8_t* pbuf, uint16_t length);
 
