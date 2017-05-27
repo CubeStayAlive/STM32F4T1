@@ -12,9 +12,11 @@
 #include "stm32f4xx_hal.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "stdio.h"
 
 void DefaultTaskEntry(void)
 {
+	printf("Hallo");
 	while(1)
 	{
 		vTaskDelay(1000);
